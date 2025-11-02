@@ -92,14 +92,15 @@ const RideRequest = () => {
     const handleRequestRide = () => {
         if (!position || !destination) return;
         const rideData = {
-            passengerId: user._id,
-            from: position,
-            to: destination,
-            distance,
-            fare,
-            status: "requested",
-            dropName: placeName,
-        };
+  passengerId: user._id,
+  from: position,
+  to: destination,
+  distanceKm: distance, // ✅ Match backend field name
+  fare,
+  status: "requested",
+  dropName: placeName,
+};
+console.log("riderequest"+rideData);
         requestRide(rideData);
         setRide(rideData);
         setMessage("✅ Ride requested successfully!");

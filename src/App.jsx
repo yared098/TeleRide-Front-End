@@ -7,37 +7,52 @@ import Register from "./components/register";
 import Login from "./components/login";
 import Dashboard from "./components/Dashboard";
 
-// PrivateRoute component
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) return <div className="p-6 text-center">Loading...</div>;
   return user ? children : <Navigate to="/login" />;
 };
 
-const App = () => {
+const AppRoutes = () => {
+  const { user, loading } = useAuth();
+
+  if (loading) return <div className="p-6 text-center">Loading...</div>;
+
+  // If authenticated via Telegram, go directly to dashboard
+  if (user && window.Telegram?.WebApp?.initData) {
+    return (
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/dashboard" />} />
+      </Routes>
+    );
+  }
+
+  // Otherwise, show login/register routes
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-
-          {/* Private Routes */}
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-
-          {/* Default Route */}
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Routes>
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
   );
 };
+
+const App = () => (
+  <AuthProvider>
+    <Router>
+      <AppRoutes />
+    </Router>
+  </AuthProvider>
+);
 
 export default App;
