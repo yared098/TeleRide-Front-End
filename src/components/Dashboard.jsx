@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 
 import { useAuth } from "../contexts/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHistory, FaCarSide, FaWallet } from "react-icons/fa";
+import { FaHistory, FaCarSide, FaWallet, FaSignOutAlt } from "react-icons/fa";
 
 import RideHistory from "./RideHistor";
 import RideRequest from "./RideRequest";
 import Wallet from "./Wallet";
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user ,logout} = useAuth();
+  
   const [activeTab, setActiveTab] = useState("rideHistory");
 
   // Disable page scroll
@@ -34,7 +35,16 @@ const Dashboard = () => {
         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-t-3xl shadow-md">
           <h1 className="text-lg font-semibold">Welcome new, {user.firstName || "Passenger"} 👋</h1>
           <span className="text-sm opacity-90">Teleride</span>
+           {/* ✅ Logout button */}
+          <button
+            onClick={logout}
+            className="flex items-center gap-1 bg-white text-green-600 font-semibold px-3 py-1 rounded-full shadow hover:bg-green-50 transition-all"
+          >
+            <FaSignOutAlt className="text-sm" />
+            <span className="text-sm">Logout</span>
+          </button>
         </div>
+        
 
         {/* Tab Buttons */}
         <div className="flex bg-gray-50 border-b border-gray-200">
