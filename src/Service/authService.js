@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth"; 
+// const API_URL = "http://localhost:5000/api/auth"; 
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 // ✅ Save user + token helper
 const saveAuthData = (user, token) => {
