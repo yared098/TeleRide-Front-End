@@ -40,7 +40,7 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-200 via-green-100 to-green-200">
       <div className="w-full max-w-md p-10 rounded-3xl shadow-2xl backdrop-blur-lg bg-white/50 border border-white/20 animate-fadeIn">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 tracking-wide">
-          Create Your TeleRide Account..
+          Create Your TeleRide Account
         </h2>
 
         {error && (
