@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
+    "@telegram-apps/sdk": "^3.11.8",
     "axios": "^1.13.1",
     "framer-motion": "^12.23.24",
     "jwt-decode": "^4.0.0",

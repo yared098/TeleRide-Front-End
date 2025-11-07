@@ -33,7 +33,7 @@ const Dashboard = () => {
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full h-[99vh] flex flex-col overflow-hidden border border-gray-100">
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-t-3xl shadow-md">
-          <h1 className="text-lg font-semibold">Welcome new, {user.firstName || "Passenger"} 👋</h1>
+          <h1 className="text-lg font-semibold">Welcome , {user.firstName || "Passenger"} 👋</h1>
           <span className="text-sm opacity-90">Teleride</span>
            {/* ✅ Logout button */}
           <button
