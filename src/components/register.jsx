@@ -50,7 +50,7 @@ const Register = () => {
         )}
 
         {success && (
-          <div className="bg-green-100 text-green-700 p-3 rounded mb-4 text-center font-medium shadow animate-pulse">
+          <div classNaame="bg-green-100 text-green-700 p-3 rounded mb-4 text-center font-medium shadow animate-pulse">
             Registration successful! Redirecting to login...
           </div>
         )}
