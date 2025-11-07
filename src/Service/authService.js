@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${import.meta.env.VITESOCKETURL}/api/auth`;
+const API_URL = `${import.meta.env.VITE_SOCKET_URL}/api/auth`;
 
 
 // ✅ Save user + token helper

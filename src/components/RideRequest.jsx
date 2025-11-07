@@ -5,7 +5,7 @@ import { GoogleMap, Marker, Circle, DirectionsRenderer, useLoadScript } from "@r
 
 import { FaCarSide, FaCheckCircle, FaExclamationCircle, FaTimes, FaMapMarkerAlt, FaGripLines } from "react-icons/fa";
 
-const GOOGLE_MAPS_API_KEY = import.meta.env.VITEGOOGLEMAPSAPIKEY;
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const containerStyle = { width: "100%", height: "100%" };
 
 const RideRequest = () => {
